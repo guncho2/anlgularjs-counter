@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html ng-app="counter">
+
+  <head>
+    <title> AngularJS Counter</title>
+  </head>
+
+<!-- ng-controller directive takes a string, the name
+of the controller, and an alias for that controller
+alias is a name for an instance of the controller -->
+
+  <body ng-controller="CounterController as counter">
+    <!-- access the number property of our controller
+     by using the counter alias.Whatever is assigned
+     to this in the controller function is accessible
+     on the alias in the view -->
+    <p>Count: {{ counter.number }}</p>
+    <!-- click events on our buttons, use the ng-click directive
+    and pass it an expression that changes the value
+    of counter.number. -->
+    <!-- <button id="increment" ng-click="counter.number = counter.number + 1">Increment</button>
+    <button id="decrement" ng-click="counter.number = counter.number - 1">Decrement</button> -->
+<!-- Although inserting our logic directly into the ng-click
+ directive works,it's very limiting. It's preferrable to
+ call a function defined within the controller from an
+ event, so let's refactor the code we just wrote. -->
+ <button id="increment" ng-click="counter.increment()">Increment</button>
+ <button id="decrement" ng-click="counter.decrement()">Decrement</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script src="app.js"></script>
+  </body>
